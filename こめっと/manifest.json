@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "YouTubeドパガキ弾幕",
+  "version": "1.3.2",
+  "description": "YouTubeの既存コメントを返信込みで一括取得。保存・中断・再開に対応し、時刻同期と10種類のド派手な弾幕で表示。",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTubeドパガキ弾幕",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png",
+      "32": "icons/32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png",
+    "32": "icons/32.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "comment-api.js",
+        "comment-bridge.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "core.js",
+        "comment-collector.js",
+        "renderer.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

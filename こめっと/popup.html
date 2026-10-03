@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="popup.css"><title>YouTubeドパガキ弾幕</title></head><body>
+  <header><div class="logo">✦</div><div><h1>YouTubeドパガキ弾幕</h1><p>YouTubeを、祭りに。</p></div><button id="enabled" class="switch" aria-pressed="true" aria-label="弾幕のON/OFF"><i></i></button></header>
+  <main>
+    <section class="hero"><span class="eyebrow">10 EFFECTS / TIMECODE SYNC</span><h2>いつものコメントを、<br><em>ド派手な弾幕に。</em></h2><div class="mode-row"><button id="festival" aria-pressed="true">🔥 祭りモード</button><button id="calm" aria-pressed="false">☁ まったり</button></div><p id="status" role="status">動画の状態を確認中…</p><p>ネオン・虹・炎・氷・金・漫画・グリッチ・波・スポットライト・レーザー。コメントごとに変わる演出。</p></section>
+    <section class="sliders" aria-label="弾幕の設定">
+      <label for="fontSize">文字のデカさ<output id="fontSize-value"></output></label><input type="range" id="fontSize" min="18" max="46" step="1">
+      <label for="lanes">弾幕のにぎやかさ<output id="lanes-value"></output></label><input type="range" id="lanes" min="4" max="18" step="1">
+      <label for="duration">流れる時間<output id="duration-value"></output></label><input type="range" id="duration" min="4" max="14" step="1">
+      <label for="opacity">くっきり度<output id="opacity-value"></output></label><input type="range" id="opacity" min="25" max="100" step="5">
+    </section>
+    <section class="options"><label><input type="checkbox" id="includeUntimed"><span>時刻のない既存コメントも流す</span></label><label><input type="checkbox" id="confetti"><span>火花・キラキラ・紙吹雪 🎉</span></label><label><input type="checkbox" id="hideChapters"><span>目次コメントを除く</span></label></section>
+    <div class="actions"><button id="collect">↓ 全件取得（返信込み）</button><button id="restart" hidden>最初から再取得</button></div>
+    <p id="collectionStatus" role="status"></p><details><summary>見たくないコメントを調整</summary><label for="ngWords">NGワード（カンマ区切り）</label><input type="text" id="ngWords" placeholder="例：ネタバレ, 広告" maxlength="1000"><label for="minLikes">いいね数がこの数以上</label><input type="number" id="minLikes" min="0" max="1000000"></details>
+    <p class="footnote">YouTubeに投稿済みのコメントが弾幕になります。<br>時刻付きは同期、全件取得後、時刻なしは全体から選んで表示。</p>
+    <p id="error" role="alert" hidden></p>
+  </main><footer>NO ACCOUNT. JUST VIBES. <span>v1.3.2</span></footer>
+  <script src="core.js"></script><script src="popup.js"></script>
+</body></html>

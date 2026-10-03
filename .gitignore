@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+REPO-NOTES.md
+NOTES.md
+node_modules/
+*.log
+*.zip
